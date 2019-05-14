@@ -43,8 +43,8 @@ export default class ClaimsSpFx extends React.Component<IClaimsSpFxProps, IClaim
       isChecked: false,
       required:"This is required",
       onSubmission:false,
-      termnCond:false,
-    }
+      termnCond:false
+    };
   }
   
   public render(): React.ReactElement<IClaimsSpFxProps> {
@@ -87,7 +87,7 @@ export default class ClaimsSpFx extends React.Component<IClaimsSpFxProps, IClaim
               <p className={(this.state.termKey === undefined && this.state.onSubmission === true)? styles.fontRed : styles.hideElement}>This is required</p>
             </div>
             <div className="ms-Grid-col ms-u-sm4 block">
-              <label className="ms-Label">Claim Group</label><br/>
+              <label className="ms-Label">Claims Group</label><br/>
             </div>
             <div className="ms-Grid-col ms-u-sm8 block">
               <Dropdown
