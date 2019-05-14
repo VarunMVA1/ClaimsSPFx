@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "claims-sp-fx-client-side-solution",
+    "id": "dd7f6687-56d9-449d-9029-cf3fe88ddcf4",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "isDomainIsolated": false
+  },
+  "paths": {
+    "zippedPackage": "solution/claims-sp-fx.sppkg"
+  }
+}

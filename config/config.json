@@ -1,0 +1,19 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "claims-sp-fx-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/claimsSpFx/ClaimsSpFxWebPart.js",
+          "manifest": "./src/webparts/claimsSpFx/ClaimsSpFxWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "ClaimsSpFxWebPartStrings": "lib/webparts/claimsSpFx/loc/{locale}.js",
+    "ControlStrings": "node_modules/@pnp/spfx-controls-react/lib/loc/{locale}.js"
+  }
+}
