@@ -135,6 +135,7 @@ export default class ClaimsSpFx extends React.Component<IClaimsSpFxProps, IClaim
               showtooltip={false}
               isRequired={true}
               disabled={false}
+              ensureUser={true}
               selectedItems={this._getManager}
               errorMessage={(this.state.userManagerIDs.length === 0 && this.state.onSubmission === true) ? this.state.required : " "} />
           </div>
@@ -301,18 +302,21 @@ export default class ClaimsSpFx extends React.Component<IClaimsSpFxProps, IClaim
     this._showDialog("Submitting Request");
     console.log(this.state.termKey);
     pnp.sp.web.lists.getByTitle("Claims").items.add({
-      Title: this.state.disputeClaim,
-      Description: this.state.Claimdescription,
-      Group: this.state.gpselectedItem.key,
-      Location: {
+      'Title': this.state.disputeClaim,
+      'Description': this.state.Claimdescription,
+      'Group': this.state.gpselectedItem.key,
+      'Escalate_To_Higher_Level': this.state.isChecked,
+      'Reporting_ManagerId': this.state.userManagerIDs[0],
+      'Location': {
         __metadata: { "type": "SP.Taxonomy.TaxonomyFieldValue" },
         Label: "1",
         TermGuid: this.state.termKey,
-        WssId: -1
+        WssId: -1 
     },
-    Reporting_ManagerId: this.state.userManagerIDs[0]
-  }).then((iar: ItemAddResult) => {
+  }).then((result: ItemAddResult) => {
       this.setState({ status: "Your request has been submitted sucessfully " });
+  }, (error: any): void => {  
+    this.setState({ status: "Error while creating the item: " + error});  
   });
   }
   
