@@ -139,20 +139,16 @@ export default class ClaimsSpFx extends React.Component<IClaimsSpFxProps, IClaim
               selectedItems={this._getManager}
               errorMessage={(this.state.userManagerIDs.length === 0 && this.state.onSubmission === true) ? this.state.required : " "} />
           </div>
-          <div className="ms-Grid-col ms-u-sm1 block">
-            <Checkbox onChange={this._onCheckboxChange} ariaDescribedBy={'descriptionID'} />
+          <div className={`ms-Grid-col ms-u-sm1 block ${styles.customFont}`}>
+            <br/><Checkbox onChange={this._onCheckboxChange} ariaDescribedBy={'descriptionID'} color={`${styles.customFont}`} label="I have read and agree to the terms & condition" />
           </div>
           <div className="ms-Grid-col ms-u-sm11 block">
-            <span className={`${styles.customFont}`}>I have read and agree to the terms & condition</span><br/>
+            {/* <span className={`${styles.customFont}`}>I have read and agree to the terms & condition</span><br/> */}
             <p className={(this.state.termnCond === false && this.state.onSubmission === true)? styles.fontRed : styles.hideElement}>Please check the Terms & Condition</p>
           </div>        
-          <div className="ms-Grid-col ms-u-sm6 block">
-          </div>
-          <div className="ms-Grid-col ms-u-sm2 block">
-            <PrimaryButton text="Create" onClick={() => { this.validateForm(); }} />
-          </div>
-          <div className="ms-Grid-col ms-u-sm2 block">
-            <DefaultButton text="Cancel" onClick={() => { this.setState({}); }} />
+          <div className="ms-Grid-col ms-lg8 ms-md8 ms-u-sm6 block marginRight">
+              <br/><PrimaryButton text="Create" onClick={() => { this.validateForm(); }} /> &nbsp;
+              <DefaultButton text="Cancel" onClick={() => { this.setState({}); }} />
           </div>
           <div>
           <Panel
